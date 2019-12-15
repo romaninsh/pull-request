@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -e
+set -ex
 
 if [[ -z "$GITHUB_TOKEN" ]]; then
   echo "Set the GITHUB_TOKEN environment variable."
@@ -22,7 +22,7 @@ DESTINATION_BRANCH="${INPUT_DESTINATION_BRANCH:-"master"}"
 git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
 
 # Pull all branches references down locally so subsequent commands can see them
-git fetch origin '+refs/heads/*:refs/heads/*'
+#git fetch origin '+refs/heads/*:refs/heads/*'
 
 if [ "$(git rev-parse --revs-only "$SOURCE_BRANCH")" = "$(git rev-parse --revs-only "$DESTINATION_BRANCH")" ]; then 
   echo "Source and destination branches are the same." 
