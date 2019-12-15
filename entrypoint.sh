@@ -70,7 +70,7 @@ if [[ "$INPUT_PR_DRAFT" ==  "true" ]]; then
 fi
 
 COMMAND="hub pull-request \
-  -f
+  -f \
   -b $DESTINATION_BRANCH \
   -h $SOURCE_BRANCH \
   --no-edit \
